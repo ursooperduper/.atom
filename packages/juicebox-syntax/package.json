@@ -1,0 +1,34 @@
+{
+  "name": "juicebox-syntax",
+  "theme": "syntax",
+  "version": "1.0.6",
+  "description": "A dark syntax theme for Atom. Juicebox features bright, core colors alongside soft, flat-styled elements. This is a syntax theme only, and will not affect the Atom UI (it will work with Light or Dark UI schemes).",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamdehaven/juicebox-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Juicebox Syntax Theme\n\nA dark syntax theme for Atom. Juicebox features bright, core colors alongside soft, flat-styled elements. This is a syntax theme only, and will not affect the Atom UI (it will work with Light or Dark UI schemes).\n\n### Installation\n\nRun the following command:\n\n```sh\napm install juicebox-syntax\n```\n\nTo activate the theme, open the Settings view (`cmd-,`) and select the Themes section from the left hand side. Simply select `Juicebox` from the `Syntax Themes` dropdown.\n\n![Juicebox Screenshot](https://raw.githubusercontent.com/adamdehaven/juicebox-syntax/master/juicebox-preview.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/adamdehaven/juicebox-syntax/issues"
+  },
+  "homepage": "https://github.com/adamdehaven/juicebox-syntax",
+  "_id": "juicebox-syntax@1.0.6",
+  "_shasum": "9fc79cba62fc916dbdf5ce1897014934a48f493c",
+  "_resolved": "file:../d-115123-8455-ycop5d/package.tgz",
+  "_from": "../d-115123-8455-ycop5d/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "polychrome-ui",
+  "theme": "ui",
+  "version": "0.2.4",
+  "description": "A flat dark gray UI theme.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ignism/polychrome-ui"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Polychrome UI Theme for Atom\n\nA gray and flat theme, streamlined for Atom. Inspired by the monokai color scheme.\n\nShown below with the [file-icons](https://github.com/DanBrooker/file-icons) and the [minimap](https://github.com/fundon/atom-minimap) packages.\n\n![polychrome](http://i.imgur.com/5kmwH9I.png)\n\n** Optimize your experience using the [Polychrome Syntax](http://atom.io/packages/polychrome-syntax) theme.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/ignism/polychrome-ui/issues"
+  },
+  "homepage": "https://github.com/ignism/polychrome-ui",
+  "_id": "polychrome-ui@0.2.4",
+  "dist": {
+    "shasum": "1fc8d62ba4f64d18b285b20aeb38bee1cbbc6bb5"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-115021-63281-fepman/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-115021-63281-fepman/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

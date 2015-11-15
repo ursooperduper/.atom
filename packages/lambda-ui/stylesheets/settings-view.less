@@ -1,0 +1,85 @@
+
+.settings-view {
+  .config-menu {
+    background: @app-background-color;
+    color: @text-color;
+    border-right-color: @base-border-color;
+
+    .nav > li.active > a {
+      color: @text-color;
+    }
+  }
+
+  .settings-panel,
+  section,
+  .section {
+    background: @base-background-color;
+  }
+
+  .section {
+    border-color: @base-border-color !important;
+
+    .section-heading,
+    .sub-section-heading {
+      color: @text-color;
+      font-weight: 300;
+    }
+  }
+
+
+  .text {
+    .text(normal);
+  }
+
+  .settings-panel-label {
+    .text(normal);
+    font-weight: 300;
+  }
+  .setting-description {
+    .text(subtle);
+  }
+  .setting-title {
+    .text(normal);
+    font-weight: 300;
+  }
+
+  select.form-control {
+    color: @text-color;
+    border-color: @base-border-color;
+    background-color: @app-background-color;
+
+    &:hover {
+      background-color: @base-background-color;
+      cursor:pointer;
+    }
+  }
+
+  .table td,
+  .table th {
+    border-color: @base-border-color;
+  }
+
+  .package-card {
+    background: @app-background-color;
+    border-color: @base-border-color;
+    color: @text-color;
+
+    &:hover {
+      background: @base-background-color;
+    }
+
+    .card-name {
+      color: @text-color;
+      font-weight: 300;
+
+      a {
+        color: @text-color;
+        font-weight: 300;
+
+        &:hover {
+          color: @text-color-subtle;
+        }
+      }
+    }
+  }
+}

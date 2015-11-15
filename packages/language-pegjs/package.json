@@ -1,0 +1,33 @@
+{
+  "name": "language-pegjs",
+  "version": "0.5.0",
+  "description": "PEG.js language support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "http://atom.github.io/language-pegjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/language-pegjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/language-pegjs/issues"
+  },
+  "readme": "# PEG.js language support in Atom\n\nAdds syntax highlighting to PEG.js files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [PEG.js TextMate bundle](https://github.com/alexstrat/PEGjs.tmbundle).\n\nContributions are greatly appreciated. Please fork this repository and open a\npull request to add snippets, make grammar tweaks, etc.\n",
+  "readmeFilename": "README.md",
+  "_id": "language-pegjs@0.5.0",
+  "_shasum": "6b327a543499c22ef592817ad09a06405d925810",
+  "_resolved": "file:../d-115624-14434-ns6qlt/package.tgz",
+  "_from": "../d-115624-14434-ns6qlt/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

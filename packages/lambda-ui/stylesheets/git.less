@@ -1,0 +1,31 @@
+@import "ui-mixins";
+@import "ui-variables";
+
+// .status { .text(normal); }
+// .status-added { .text(info); }
+// .status-ignored { .text(subtle); }
+// .status-modified { .text(warning); }
+// .status-removed { .text(error); }
+// .status-renamed { .text(success); }
+
+.file {
+  border-right: 2px solid rgba( 0,0,0,0 );
+
+  &.status {}
+  &.status-added {
+    border-right-color: @green;
+  }
+  &.status-ignored {
+    border-right-color: black;
+    color: darken( @text-color, 5% );
+  }
+  &.status-modified {
+    border-right-color: @orange;
+  }
+  &.status-removed {
+    border-right-color: @red;
+  }
+  &.status-renamed {
+    border-right-color: @darkRed;
+  }
+}

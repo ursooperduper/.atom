@@ -1,0 +1,40 @@
+{
+  "name": "fizzy-dark",
+  "theme": "syntax",
+  "version": "0.18.2",
+  "private": true,
+  "description": "A darker version of jglovier's beautiful Fizzy theme.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dualmoon/fizzy-dark"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/dualmoon/fizzy/blob/master/LICENSE.md"
+    }
+  ],
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "readme": "## Fizzy Syntax Theme\n\nFizzy Dark is a dark modification of the Soda syntax theme for [Atom](http://atom.io/) which was inspired by [Macrabbit Espresso](http://macrabbit.com/espresso/)'s default syntax highlighting color scheme, and by the [Soda Theme](https://github.com/buymeasoda/soda-theme) for Sublime. It features bright, primary colors on a white background. It is a syntax theme only, and will not affect the Atom UI (it works with both the Light UI scheme, and Dark UI scheme).\n\n### Installation\n\nRun the following command:\n\n```sh\napm install fizzy-dark\n```\n\nThen go to `Atom > Preferences > Themes` and in the `Syntax Themes` dropdown, select `Fizzy Dark` from the list.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/dualmoon/fizzy-dark/issues"
+  },
+  "homepage": "https://github.com/dualmoon/fizzy-dark",
+  "_id": "fizzy-dark@0.18.2",
+  "_shasum": "802b51b84351467216a33e3000a0a8e784c82bbe",
+  "_resolved": "file:../d-115028-26556-1nj5frd/package.tgz",
+  "_from": "../d-115028-26556-1nj5frd/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

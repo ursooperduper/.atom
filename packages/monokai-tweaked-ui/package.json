@@ -1,0 +1,34 @@
+{
+  "name": "monokai-tweaked-ui",
+  "theme": "ui",
+  "version": "0.3.0",
+  "description": "Monokai Tweaked UI theme for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoOx/atom-monokai-tweaked-ui"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.60.0"
+  },
+  "readme": "# Monokai Tweaked UI theme\n\n> Monokai Tweaked UI theme for Atom (based on Atom Dark UI).\n\nThis theme Monokai Tweaked UI theme can be installed and activated by going to the Themes section in the Settings view (cmd-,) and selecting it from the UI Themes dropdown menu.  \nYou can eventually install it using `apm install monokai-tweaked-ui`, but you will still need to activate it from the Setting view.\n\n_Note: This UI theme works great with [Monokai Tweaked Syntax theme](https://atom.io/packages/monokai-tweaked-syntax)_\n\n## Global preview\n\n![Monokai Tweaked UI theme preview](https://github.com/MoOx/atom-monokai-tweaked-ui/raw/master/screenshots/preview.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/MoOx/atom-monokai-tweaked-ui/issues"
+  },
+  "homepage": "https://github.com/MoOx/atom-monokai-tweaked-ui",
+  "_id": "monokai-tweaked-ui@0.3.0",
+  "_shasum": "0e8fb83948da70ae4ea97d4fd76cfd1e74994ee6",
+  "_resolved": "file:../d-115625-17722-cin1w6/package.tgz",
+  "_from": "../d-115625-17722-cin1w6/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

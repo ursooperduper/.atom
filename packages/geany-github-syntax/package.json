@@ -1,0 +1,27 @@
+{
+  "name": "geany-github-syntax",
+  "theme": "syntax",
+  "version": "1.0.0",
+  "private": false,
+  "description": "a light theme with colors inspired by geany's github theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VanCoding/atom-geany-github-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# geany-github-syntax\n\nI absolutely love Geany's GitHub theme, so I decided to bring it to atom. It's totally hacky, but it works (at least for JS).\n\n![less example](./screenshot.png)\n\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/VanCoding/atom-geany-github-syntax/issues"
+  },
+  "homepage": "https://github.com/VanCoding/atom-geany-github-syntax",
+  "_id": "geany-github-syntax@1.0.0",
+  "dist": {
+    "shasum": "5dc84ecf3dacd1ad20b94e59e3b56136b69a92a7"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7555-7vd4yk/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7555-7vd4yk/package.tgz"
+}

@@ -1,0 +1,95 @@
+@import "styles/colors";
+@import "styles/whitespace";
+@import "styles/selection";
+
+.atom-text-editor,
+.atom-text-editor .gutter {
+  //-webkit-font-smoothing: antialiased;
+
+  background-color: @var_Color_grey__background;
+  color: @var_Color_white;
+  text-shadow: 0 1px 0 #000;
+  line-height: 1.4;
+}
+
+.atom-text-editor .wrap-guide {
+  background: @var_Color_grey__dark;
+}
+
+atom-text-editor[mini] { text-shadow: none }
+
+  .comment { color: @var_Color_grey__comment }
+
+  .string { color: @var_Color_yellow }
+  .keyword { color: @var_Color_fushia }
+  .constant.numeric { color: @var_Color_purple }
+
+  .comment { color: @var_Color_grey__comment }
+
+  .string { color: @var_Color_yellow }
+
+  .constant.numeric { color: @var_Color_purple}
+
+  .constant.language { color: @var_Color_purple }
+
+  .constant.character,
+  .constant.other { color: @var_Color_purple }
+
+  .variable { }
+
+  .keyword { color: @var_Color_fushia }
+
+  .storage { color: @var_Color_fushia }
+
+  .storage.type {
+    font-style: italic;
+    color: @var_Color_turquoise;
+  }
+
+  .entity.name.class {
+    text-decoration: underline;
+    color: @var_Color_green;
+  }
+
+  .entity.other.inherited-class {
+    font-style: italic;
+    text-decoration: underline;
+    color: @var_Color_green;
+  }
+
+  .entity.name.function { color: @var_Color_green; }
+
+  .variable.parameter {
+    font-style: italic;
+    color: @var_Color_orange;
+  }
+
+  .entity.name.tag { color: @var_Color_fushia }
+
+  .entity.other.attribute-name { color: @var_Color_green }
+
+  .support.function { color: @var_Color_turquoise }
+
+  .support.constant { color: @var_Color_turquoise }
+
+  .support.type,
+  .support.class {
+    font-style: italic;
+    color: @var_Color_turquoise;
+  }
+
+  .invalid {
+    color: @var_Color_white;
+    background-color: @var_Color_fushia;
+  }
+
+  .invalid.deprecated {
+    color: @var_Color_white;
+    background-color: @var_Color_purple;
+  }
+
+@import "styles/git_gutter";
+
+//@import "styles/languages/*";
+// @todo import & test all languages specific highlighting
+@import "styles/languages/markdown";

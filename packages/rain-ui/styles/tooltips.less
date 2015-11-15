@@ -1,0 +1,55 @@
+// ========== Tooltips ========== //
+
+.tooltip {
+  white-space: nowrap;
+
+  &.in {
+    opacity: 1;
+    transition: opacity 120ms ease-out;
+  }
+
+  .tooltip-inner {
+    line-height: 1.5rem;
+    border-radius: @component-border-radius;
+    // border: 1px solid @theme-color-3;
+    background-color: @tooltip-background-color;
+    color: @tooltip-text-color;
+    white-space: nowrap;
+    max-width: none;
+  }
+
+  .keystroke {
+    font-family: Consolas;
+    font-size: @font-size;
+    padding: 1px 3px;
+    margin: 0 -4px 0 3px;
+    border-radius: max(2px, @component-border-radius / 2);
+    color: @tooltip-text-key-color;
+    background: @tooltip-background-key-color;
+  }
+
+  &.top .tooltip-arrow {
+    border-top-color: @tooltip-background-color;
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: @tooltip-background-color;
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: @tooltip-background-color;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: @tooltip-background-color;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: @tooltip-background-color;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: @tooltip-background-color;
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: @tooltip-background-color;
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: @tooltip-background-color;
+  }
+}

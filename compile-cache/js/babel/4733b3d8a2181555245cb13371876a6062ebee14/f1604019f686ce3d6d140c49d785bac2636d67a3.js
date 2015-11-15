@@ -1,0 +1,67 @@
+"use babel";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = {
+  config: {
+    rubyExecutablePath: {
+      type: "string",
+      "default": "ruby"
+    },
+    ignoredExtensions: {
+      type: 'array',
+      "default": ['erb', 'md'],
+      items: {
+        type: 'string'
+      }
+    }
+  },
+
+  activate: function activate() {
+    // We are now using steelbrain's package dependency package to install our
+    //  dependencies.
+    require("atom-package-deps").install("linter-ruby");
+  },
+
+  provideLinter: function provideLinter() {
+    var helpers = require("atom-linter");
+    var Path = require("path");
+    var regex = /.+:(\d+):\s*(.+?):\s(.+)/;
+    return {
+      grammarScopes: ["source.ruby", "source.ruby.rails", "source.ruby.rspec"],
+      scope: "file",
+      lintOnFly: true,
+      lint: function lint(activeEditor) {
+        var command = atom.config.get("linter-ruby.rubyExecutablePath");
+        var ignored = atom.config.get("linter-ruby.ignoredExtensions");
+        var filePath = activeEditor.getPath();
+        var fileExtension = Path.extname(filePath).substr(1);
+
+        for (var extension of ignored) {
+          if (fileExtension === extension) return [];
+        }
+
+        return helpers.exec(command, ['-wc'], { stdin: activeEditor.getText(), stream: 'stderr' }).then(function (output) {
+          var toReturn = [];
+          output.split(/\r?\n/).forEach(function (line) {
+            var matches = regex.exec(line);
+            if (matches === null) {
+              return;
+            }
+            toReturn.push({
+              range: helpers.rangeFromLineNumber(activeEditor, Number.parseInt(matches[1] - 1)),
+              type: matches[2],
+              text: matches[3],
+              filePath: filePath
+            });
+          });
+          return toReturn;
+        });
+      }
+    };
+  }
+};
+module.exports = exports["default"];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYXJhaC8uYXRvbS9wYWNrYWdlcy9saW50ZXItcnVieS9saWIvbWFpbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxXQUFXLENBQUM7Ozs7O3FCQUVHO0FBQ2IsUUFBTSxFQUFFO0FBQ04sc0JBQWtCLEVBQUU7QUFDbEIsVUFBSSxFQUFFLFFBQVE7QUFDZCxpQkFBUyxNQUFNO0tBQ2hCO0FBQ0QscUJBQWlCLEVBQUU7QUFDakIsVUFBSSxFQUFFLE9BQU87QUFDYixpQkFBUyxDQUFDLEtBQUssRUFBRSxJQUFJLENBQUM7QUFDdEIsV0FBSyxFQUFFO0FBQ0wsWUFBSSxFQUFFLFFBQVE7T0FDZjtLQUNGO0dBQ0Y7O0FBRUQsVUFBUSxFQUFFLG9CQUFNOzs7QUFHZCxXQUFPLENBQUMsbUJBQW1CLENBQUMsQ0FBQyxPQUFPLENBQUMsYUFBYSxDQUFDLENBQUM7R0FDckQ7O0FBRUQsZUFBYSxFQUFFLHlCQUFNO0FBQ25CLFFBQU0sT0FBTyxHQUFHLE9BQU8sQ0FBQyxhQUFhLENBQUMsQ0FBQztBQUN2QyxRQUFNLElBQUksR0FBRyxPQUFPLENBQUMsTUFBTSxDQUFDLENBQUM7QUFDN0IsUUFBTSxLQUFLLEdBQUcsMEJBQTBCLENBQUM7QUFDekMsV0FBTztBQUNMLG1CQUFhLEVBQUUsQ0FBQyxhQUFhLEVBQUUsbUJBQW1CLEVBQUUsbUJBQW1CLENBQUM7QUFDeEUsV0FBSyxFQUFFLE1BQU07QUFDYixlQUFTLEVBQUUsSUFBSTtBQUNmLFVBQUksRUFBRSxjQUFDLFlBQVksRUFBSztBQUN0QixZQUFNLE9BQU8sR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxnQ0FBZ0MsQ0FBQyxDQUFDO0FBQ2xFLFlBQU0sT0FBTyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLCtCQUErQixDQUFDLENBQUM7QUFDakUsWUFBTSxRQUFRLEdBQUcsWUFBWSxDQUFDLE9BQU8sRUFBRSxDQUFDO0FBQ3hDLFlBQU0sYUFBYSxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUMsUUFBUSxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDOztBQUV2RCxhQUFLLElBQUksU0FBUyxJQUFJLE9BQU8sRUFBRTtBQUM3QixjQUFJLGFBQWEsS0FBSyxTQUFTLEVBQUUsT0FBTyxFQUFFLENBQUM7U0FDNUM7O0FBRUQsZUFBTyxPQUFPLENBQUMsSUFBSSxDQUFDLE9BQU8sRUFBRSxDQUFDLEtBQUssQ0FBQyxFQUFFLEVBQUMsS0FBSyxFQUFFLFlBQVksQ0FBQyxPQUFPLEVBQUUsRUFBRSxNQUFNLEVBQUUsUUFBUSxFQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsVUFBQSxNQUFNLEVBQUk7QUFDdEcsY0FBSSxRQUFRLEdBQUcsRUFBRSxDQUFDO0FBQ2xCLGdCQUFNLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxDQUFDLE9BQU8sQ0FBQyxVQUFVLElBQUksRUFBRTtBQUM1QyxnQkFBTSxPQUFPLEdBQUcsS0FBSyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQztBQUNqQyxnQkFBSSxPQUFPLEtBQUssSUFBSSxFQUFFO0FBQ3BCLHFCQUFPO2FBQ1I7QUFDRCxvQkFBUSxDQUFDLElBQUksQ0FBQztBQUNaLG1CQUFLLEVBQUUsT0FBTyxDQUFDLG1CQUFtQixDQUFDLFlBQVksRUFBRSxNQUFNLENBQUMsUUFBUSxDQUFFLE9BQU8sQ0FBQyxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUUsQ0FBQztBQUNuRixrQkFBSSxFQUFFLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDaEIsa0JBQUksRUFBRSxPQUFPLENBQUMsQ0FBQyxDQUFDO0FBQ2hCLHNCQUFRLEVBQUUsUUFBUTthQUNuQixDQUFDLENBQUM7V0FDSixDQUFDLENBQUM7QUFDSCxpQkFBTyxRQUFRLENBQUM7U0FDakIsQ0FBQyxDQUFDO09BQ0o7S0FDRixDQUFDO0dBQ0g7Q0FDRiIsImZpbGUiOiIvVXNlcnMvc2FyYWgvLmF0b20vcGFja2FnZXMvbGludGVyLXJ1YnkvbGliL21haW4uanMiLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBiYWJlbFwiO1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbmZpZzoge1xuICAgIHJ1YnlFeGVjdXRhYmxlUGF0aDoge1xuICAgICAgdHlwZTogXCJzdHJpbmdcIixcbiAgICAgIGRlZmF1bHQ6IFwicnVieVwiXG4gICAgfSxcbiAgICBpZ25vcmVkRXh0ZW5zaW9uczoge1xuICAgICAgdHlwZTogJ2FycmF5JyxcbiAgICAgIGRlZmF1bHQ6IFsnZXJiJywgJ21kJ10sXG4gICAgICBpdGVtczoge1xuICAgICAgICB0eXBlOiAnc3RyaW5nJ1xuICAgICAgfVxuICAgIH1cbiAgfSxcblxuICBhY3RpdmF0ZTogKCkgPT4ge1xuICAgIC8vIFdlIGFyZSBub3cgdXNpbmcgc3RlZWxicmFpbidzIHBhY2thZ2UgZGVwZW5kZW5jeSBwYWNrYWdlIHRvIGluc3RhbGwgb3VyXG4gICAgLy8gIGRlcGVuZGVuY2llcy5cbiAgICByZXF1aXJlKFwiYXRvbS1wYWNrYWdlLWRlcHNcIikuaW5zdGFsbChcImxpbnRlci1ydWJ5XCIpO1xuICB9LFxuXG4gIHByb3ZpZGVMaW50ZXI6ICgpID0+IHtcbiAgICBjb25zdCBoZWxwZXJzID0gcmVxdWlyZShcImF0b20tbGludGVyXCIpO1xuICAgIGNvbnN0IFBhdGggPSByZXF1aXJlKFwicGF0aFwiKTtcbiAgICBjb25zdCByZWdleCA9IC8uKzooXFxkKyk6XFxzKiguKz8pOlxccyguKykvO1xuICAgIHJldHVybiB7XG4gICAgICBncmFtbWFyU2NvcGVzOiBbXCJzb3VyY2UucnVieVwiLCBcInNvdXJjZS5ydWJ5LnJhaWxzXCIsIFwic291cmNlLnJ1YnkucnNwZWNcIl0sXG4gICAgICBzY29wZTogXCJmaWxlXCIsXG4gICAgICBsaW50T25GbHk6IHRydWUsXG4gICAgICBsaW50OiAoYWN0aXZlRWRpdG9yKSA9PiB7XG4gICAgICAgIGNvbnN0IGNvbW1hbmQgPSBhdG9tLmNvbmZpZy5nZXQoXCJsaW50ZXItcnVieS5ydWJ5RXhlY3V0YWJsZVBhdGhcIik7XG4gICAgICAgIGNvbnN0IGlnbm9yZWQgPSBhdG9tLmNvbmZpZy5nZXQoXCJsaW50ZXItcnVieS5pZ25vcmVkRXh0ZW5zaW9uc1wiKTtcbiAgICAgICAgY29uc3QgZmlsZVBhdGggPSBhY3RpdmVFZGl0b3IuZ2V0UGF0aCgpO1xuICAgICAgICBjb25zdCBmaWxlRXh0ZW5zaW9uID0gUGF0aC5leHRuYW1lKGZpbGVQYXRoKS5zdWJzdHIoMSk7XG5cbiAgICAgICAgZm9yIChsZXQgZXh0ZW5zaW9uIG9mIGlnbm9yZWQpIHtcbiAgICAgICAgICBpZiAoZmlsZUV4dGVuc2lvbiA9PT0gZXh0ZW5zaW9uKSByZXR1cm4gW107XG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gaGVscGVycy5leGVjKGNvbW1hbmQsIFsnLXdjJ10sIHtzdGRpbjogYWN0aXZlRWRpdG9yLmdldFRleHQoKSwgc3RyZWFtOiAnc3RkZXJyJ30pLnRoZW4ob3V0cHV0ID0+IHtcbiAgICAgICAgICB2YXIgdG9SZXR1cm4gPSBbXTtcbiAgICAgICAgICBvdXRwdXQuc3BsaXQoL1xccj9cXG4vKS5mb3JFYWNoKGZ1bmN0aW9uIChsaW5lKSB7XG4gICAgICAgICAgICBjb25zdCBtYXRjaGVzID0gcmVnZXguZXhlYyhsaW5lKTtcbiAgICAgICAgICAgIGlmIChtYXRjaGVzID09PSBudWxsKSB7XG4gICAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHRvUmV0dXJuLnB1c2goe1xuICAgICAgICAgICAgICByYW5nZTogaGVscGVycy5yYW5nZUZyb21MaW5lTnVtYmVyKGFjdGl2ZUVkaXRvciwgTnVtYmVyLnBhcnNlSW50KChtYXRjaGVzWzFdIC0gMSkpKSxcbiAgICAgICAgICAgICAgdHlwZTogbWF0Y2hlc1syXSxcbiAgICAgICAgICAgICAgdGV4dDogbWF0Y2hlc1szXSxcbiAgICAgICAgICAgICAgZmlsZVBhdGg6IGZpbGVQYXRoXG4gICAgICAgICAgICB9KTtcbiAgICAgICAgICB9KTtcbiAgICAgICAgICByZXR1cm4gdG9SZXR1cm47XG4gICAgICAgIH0pO1xuICAgICAgfVxuICAgIH07XG4gIH1cbn07XG4iXX0=
+//# sourceURL=/Users/sarah/.atom/packages/linter-ruby/lib/main.js

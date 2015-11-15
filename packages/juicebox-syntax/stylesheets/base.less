@@ -1,0 +1,408 @@
+// ==========================================================
+// base.less
+// juicebox-syntax
+// https://github.com/adamdehaven/juicebox-syntax
+//
+// Author: Adam Dehaven ( @adamdehaven )
+//
+// Copyright (c) 2014 Adam Dehaven
+// ==========================================================
+
+@import "syntax-variables";
+
+.editor-colors {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+.editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .markup.underline.link.hyperlink {
+    color: @yellow;
+    text-decoration: underline;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-navy;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+}
+
+.editor .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid @syntax-result-marker-color;
+}
+
+.editor .search-results .marker.current-result .region {
+  border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+  color: lighten(@light-navy, 10%);
+}
+
+.entity {
+  &.name.type {
+    color: @light-orange;
+    text-decoration: underline;
+  }
+
+  &.name.tag {
+    text-decoration: none !important;
+  }
+
+  &.other.inherited-class {
+    color: @gray;
+  }
+}
+
+.keyword {
+  color: @green;
+
+  &.control {
+    color: @green;
+  }
+
+  &.operator {
+    color: @syntax-text-color;
+  }
+
+  &.other.special-method {
+    color: @blue-old;
+  }
+
+  &.other.unit {
+    color: @orange;
+  }
+}
+
+.storage {
+  color: @green;
+}
+
+.constant {
+  color: @orange;
+
+  &.character.escape {
+    color: @blue;
+  }
+
+  &.numeric {
+    color: @orange;
+  }
+
+  &.other.color {
+    color: @blue;
+  }
+
+  &.other.symbol {
+    color: @gray;
+  }
+}
+
+.variable {
+  color: @red;
+
+  &.interpolation {
+    color: darken(@red, 10%);
+  }
+
+  &.parameter.function {
+    color: @syntax-text-color;
+  }
+}
+
+.invalid.illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.string {
+  color: @light-gray;
+
+
+  &.regexp {
+    color: @blue;
+
+    .source.ruby.embedded {
+      color: @orange;
+    }
+  }
+
+  &.other.link {
+    color: @red;
+  }
+}
+
+.text {
+  color:@gray;
+}
+
+.punctuation {
+  &.definition {
+    &.comment {
+      color: @light-navy;
+    }
+
+    &.string,
+    &.variable,
+    &.parameters,
+    &.array {
+      color: @syntax-text-color;
+    }
+
+    &.heading,
+    &.identity {
+      color: @blue-old;
+    }
+
+    &.bold {
+      color: @light-orange;
+      font-style: bold;
+    }
+
+    &.italic {
+      color: @green;
+      font-style: italic;
+    }
+  }
+
+  &.section.embedded {
+    color: darken(@red, 10%);
+  }
+
+}
+
+.support {
+  &.class {
+    color: @light-orange;
+  }
+
+  &.function  {
+    color: @blue;
+
+    &.any-method {
+      color: @blue-old;
+    }
+  }
+}
+
+.entity {
+  &.name.function {
+    color: @blue-old;
+  }
+
+  &.name.class, &.name.type.class {
+    color: @light-orange;
+  }
+
+  &.name.section {
+    color: @blue-old;
+  }
+
+  &.name.tag {
+    color: @red;
+    text-decoration: underline;
+  }
+
+  &.other.attribute-name {
+    color: @gray;
+
+    &.id {
+      color: @gray;
+    }
+  }
+}
+
+.meta {
+  &.class {
+    color: @light-orange;
+  }
+
+  &.link {
+    color: @orange;
+  }
+
+  &.require {
+    color: @blue-old;
+  }
+
+  &.selector {
+    color: @green;
+  }
+
+  &.separator {
+    background-color: @navy;
+    color: @syntax-text-color;
+  }
+}
+
+.none {
+  color: @syntax-text-color;
+}
+
+.markup {
+  &.bold {
+    color: @orange;
+    font-style: bold;
+  }
+
+  &.changed {
+    color: @green;
+  }
+
+  &.deleted {
+    color: @red;
+  }
+
+  &.italic {
+    color: @green;
+    font-style: italic;
+  }
+
+  &.heading .punctuation.definition.heading {
+    color: @blue-old;
+  }
+
+  &.inserted {
+    color: @gray;
+  }
+
+  &.list {
+    color: @red;
+  }
+
+  &.quote {
+    color: @orange;
+  }
+
+  &.raw.inline {
+    color: @gray;
+  }
+}
+
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+  &.heading {
+    color: @gray;
+  }
+}
+
+.editor.mini .scroll-view {
+  padding-left: 1px;
+}
+
+/***************************
+**** START CUSTOM ****
+***************************/
+
+// PHP
+.php {
+
+  &.keyword.control {
+    color:@green;
+  }
+
+  &.support.function {
+    color:@purple;
+  }
+
+  &.variable, &.variable.punctuation {
+    color:@blue;
+    font-weight:bold;
+  }
+
+  &.punctuation.section.array.begin, &.punctuation.section.array.end {
+    color:@purple;
+    font-weight:bold;
+  }
+
+  &.punctuation.section.begin, &.punctuation.section.end {
+    color:@dark-red;
+  }
+
+  &.punctuation.definition.string.begin, &.punctuation.definition.string.end {
+    color:@gray;
+  }
+
+  &.punctuation.definition.string.begin, &.punctuation.definition.string.end {
+    font-weight:bold;
+  }
+
+  &.punctuation.section.scope.begin, &.punctuation.section.scope.end {
+    color:@green;
+  }
+
+  &.string .string-contents{
+    color:@red;
+    font-weight:bold;
+  }
+
+}
+
+// HTML
+.html {
+
+  &.name.entity.tag, &.punctuation.definition.tag.begin, &.punctuation.definition.tag.end {
+    color:@gray;
+  }
+
+  &.punctuation.definition.string.begin, &.punctuation.definition.string.end, &.punctuation.definition.tag {
+    color:@gray;
+  }
+
+}
+
+// CSS
+
+.css {
+
+  &.entity.attribute-name {
+    color:@blue;
+  }
+
+}

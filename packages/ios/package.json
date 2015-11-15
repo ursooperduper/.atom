@@ -1,0 +1,26 @@
+{
+  "name": "ios",
+  "version": "0.1.0",
+  "description": "iOS Autocompletion for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webBoxio/atom-ios"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Atom iOS Package\n\niOS Autocompletion for Atom\n\n## Install\n\n```bash\napm install ios\n```\n\n![Atom iOS](https://dl.dropboxusercontent.com/u/20947008/webbox/atom/atom-ios.png)\n\n## Todo\n\n - Add function completion\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/webBoxio/atom-ios/issues"
+  },
+  "homepage": "https://github.com/webBoxio/atom-ios",
+  "_id": "ios@0.1.0",
+  "dist": {
+    "shasum": "249b4aa076bc8915c4d650c56d0bb5a351a0e714"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114823-32230-vgg8b/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114823-32230-vgg8b/package.tgz"
+}

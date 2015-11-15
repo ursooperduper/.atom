@@ -1,0 +1,44 @@
+@import "ui-variables";
+
+.tree-view-scroller {
+  background: @tree-view-background-color;
+  background: #2a2a2a;
+  box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
+  border-right: 1px solid #181818;
+
+  .selected:before {
+    background: rgba(0,0,0,0);
+    // border-right: 4px solid #f48;
+    // margin-right: 4px;
+    box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
+  }
+}
+
+.tree-view {
+  font-size: @font-size;
+  text-shadow: 1px 1px 0 rgba(0,0,0, 0.9);
+  -webkit-font-smoothing: antialiased;
+}
+
+.focusable-panel {
+  opacity: 1;
+
+  &:focus {
+    background: #282828;
+
+    .selected:before {
+    //   background: @background-color-selected;
+    }
+
+    .selected > .name,
+    .selected > .name:before,
+    .selected > .list-item > .name,
+    .selected > .list-item > .name:before {
+      color: #fff !important;
+    }
+  }
+
+  .name:before {
+      color: #aaa;
+  }
+}

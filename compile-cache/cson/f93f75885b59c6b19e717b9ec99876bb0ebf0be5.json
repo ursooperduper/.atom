@@ -1,0 +1,1 @@
+{"context-menu":{".overlayer":{"Toggle autocomplete-clang":"autocomplete-clang:toggle"}},"menu":[{"label":"Packages","submenu":[{"label":"Autocomplete Clang","submenu":[{"label":"Toggle","command":"autocomplete-clang:toggle"},{"label":"Emit Precompiled Header","command":"autocomplete-clang:emit-pch"}]}]}]}

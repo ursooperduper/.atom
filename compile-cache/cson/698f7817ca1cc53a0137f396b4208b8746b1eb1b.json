@@ -1,0 +1,1 @@
+{".source.gfm":{"Front Matter":{"prefix":"fm","body":"---\nlayout: $1\ntitle: $2\ndate: ${3:0000-00-00}\npublished: ${4:false}\ntags:\n---"}}}

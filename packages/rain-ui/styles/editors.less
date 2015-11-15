@@ -1,0 +1,35 @@
+// ========== Editors ========== //
+
+atom-text-editor[mini] {
+  max-height: @tab-height;
+  padding: .3rem .8rem;
+  border: 2px solid @input-border-color;
+  border-radius: @component-border-radius;
+  background-color: @input-background-color;
+  color: @text-color-highlight;
+  transition: all 100ms ease;
+  &,
+  &::shadow {
+    .placeholder-text {
+      color: @text-color-subtle;
+    }
+    .selection .region {
+      background-color: @input-selection-color;
+    }
+    .cursor {
+      border-color: @theme-color-4;
+      border-width: 2px;
+    }
+  }
+  &:hover {
+    border-color: @input-border-color-hover;
+  }
+  &.is-focused,
+  &.is-focused::shadow {
+    // .focus();
+    border-color: @input-border-color-focus;
+    .selection .region {
+      background-color: @input-selection-color-focus;
+    }
+  }
+}

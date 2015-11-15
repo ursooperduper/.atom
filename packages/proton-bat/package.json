@@ -1,0 +1,27 @@
+{
+  "name": "proton-bat",
+  "theme": "syntax",
+  "version": "2.0.0",
+  "private": false,
+  "description": "A Proton UI theme inspired by Shopify's BatmanJS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdsimcoe/proton-bat"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "readme": "# Proton Batman\n\n![Neutron BatmanJS Syntax](http://f.cl.ly/items/26362H2T2n260I1k1K1Q/Image%202014-04-16%20at%204.42.04%20PM.png)\n\n![Proton BatmanJS Syntax](http://f.cl.ly/items/26362H2T2n260I1k1K1Q/Image%202014-04-16%20at%204.42.04%20PM.png)\n\nA monokai syntax theme for Atom to work with [Proton UI](https://atom.io/packages/proton). The theme colors are based on Shopify’s [BatmanJS](http://batmanjs.org) branding and color scheme.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jdsimcoe/proton-bat/issues"
+  },
+  "homepage": "https://github.com/jdsimcoe/proton-bat",
+  "_id": "proton-bat@2.0.0",
+  "dist": {
+    "shasum": "2e0ffcacc10a87b1def592778f8bafb1009dfb78"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7805-1r1pbmv/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7805-1r1pbmv/package.tgz"
+}

@@ -1,0 +1,1 @@
+{"context-menu":{".overlayer":{"Enable jekyll-snippets":"jekyll-snippets:toggle"}},"menu":[{"label":"Packages","submenu":[{"label":"Jekyll Snippets","submenu":[{"label":"Toggle","command":"jekyll-snippets:toggle"}]}]}]}

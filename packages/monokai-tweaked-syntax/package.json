@@ -1,0 +1,34 @@
+{
+  "name": "monokai-tweaked-syntax",
+  "theme": "syntax",
+  "version": "0.3.0",
+  "description": "Monokai Tweaked Syntax theme for Atom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoOx/atom-monokai-tweaked-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.60.0"
+  },
+  "readme": "# Monokai Tweaked Syntax theme\n\n> Monokai Tweaked Syntax theme for Atom.\n\nThis theme Monokai Tweaked Syntax theme can be installed and activated by going to the Themes section in the Settings view (cmd-,) and selecting it from the Syntax Themes dropdown menu.  \nYou can eventually install it using `apm install monokai-tweaked-syntax`, but you will still need to activate it from the Setting view.\n\n_Note: This Syntax theme works great with [Monokai Tweaked UI theme](https://atom.io/packages/monokai-tweaked-ui)_\n\nTweaked part are visible & listed below with examples\n\n## Global preview (CSS) with git gutter\n\n![Monokai Tweaked Syntax theme preview](https://github.com/MoOx/atom-monokai-tweaked-syntax/raw/master/screenshots/preview.png)\n\nI tweaked the monokai background & add a better line height. With a bearly visible text-shadow.\n\n## Markdown rendering\n\n![Monokai Tweaked Syntax theme markdown rendering](https://github.com/MoOx/atom-monokai-tweaked-syntax/raw/master/screenshots/markdown.png)\n\n---\n\nMore to come, stay tuned ;)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/MoOx/atom-monokai-tweaked-syntax/issues"
+  },
+  "homepage": "https://github.com/MoOx/atom-monokai-tweaked-syntax",
+  "_id": "monokai-tweaked-syntax@0.3.0",
+  "_shasum": "25c6bd3d40269d4ca85f714a3c5bb029665de4ec",
+  "_resolved": "file:../d-115625-17716-1enfkit/package.tgz",
+  "_from": "../d-115625-17716-1enfkit/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

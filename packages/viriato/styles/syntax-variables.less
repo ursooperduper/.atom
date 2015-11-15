@@ -1,0 +1,125 @@
+// Primary
+@black-color: #292929;
+@black-darker-color: #1C1C1C;
+
+@grey-color: #727064;
+@grey-dark-color: #4c4444;
+@grey-light-color: #97a2a3;
+@grey-lighter-color: #CCCCCC;
+
+@white-color: #fcfcfc;
+@white-dark-color: #EFF0F1;
+
+@charcoal-color: #2c3e50;
+@charcoal-light-color: #34495e;
+
+@red-color: #ed2d2d;
+@red-dark-color: #c0392b;
+@red-light-color: #E74C3C;
+@pink-color: #DA4453;
+
+@orange-color: #ff8920;
+@orange-light-color: #f47750;
+@orange-dark-color: #D9741B;
+
+@yellow-color: #fdbc4b;
+@yellow-dark-color: #f39c1f;
+
+@green-color: #98BF2D;
+@green-dark-color: #84a527;
+@green-light-color: #c9ce3b;
+
+@turquoise-color: #1cdc9a;
+
+@blue-color: #3498db;
+@blue-light-color: #3daee9;
+@blue-dark-color: #3498db;
+@blue-darker-color: #2980b9;
+
+@purple-color: #9b59b6;
+@purple-dark-color: #8e44ad;
+
+// General colors
+.theme-one-light-ui {
+  @syntax-background-color: hsl(220,1%,98%) !important;
+}
+
+@syntax-background-color: hsl(209,0.1%,15%);
+@syntax-cursor-color: @blue-color;
+
+// Guide color
+@syntax-guide-color: @grey-dark-color;
+
+// For find and replace markers
+@syntax-result-marker-color: @blue-color;
+@syntax-result-marker-color-selected: @grey-color;
+
+// For git diff info. i.e. in the gutter
+@syntax-color-renamed: #ffd569;
+@syntax-color-added: #529b2f;
+@syntax-color-modified: #E6DB74;
+@syntax-color-removed: #F92672;
+
+.syntax-background() when (lightness(@base-background-color) < 50%) {
+  background-color: darken(@base-background-color, 4%);
+}
+
+.syntax-background() when (lightness(@base-background-color) >= 50%) {
+  background-color: lighten(@base-background-color, 5%);
+}
+
+.syntax-text-color() when (lightness(@base-background-color) < 50%) {
+  color: lighten(@text-color, 50%);
+}
+
+.syntax-text-color() when (lightness(@base-background-color) >= 50%) {
+  color: lighten(@text-color, 7.5%);
+}
+
+.syntax-guide-color() when (lightness(@base-background-color) < 50%) {
+  color: @syntax-guide-color;
+}
+
+.syntax-guide-color() when (lightness(@base-background-color) >= 50%) {
+  color: lighten(@syntax-guide-color, 60%);
+}
+
+.syntax-guide-background() when (lightness(@base-background-color) < 50%) {
+  background: @syntax-guide-color;
+}
+
+.syntax-guide-background() when (lightness(@base-background-color) >= 50%) {
+  background: lighten(@syntax-guide-color, 60%);
+}
+
+.syntax-gutter-text-color(){
+  .syntax-text-color();
+}
+
+.syntax-gutter-background-color(){
+  .syntax-background();
+}
+
+.syntax-selection-color() when (lightness(@base-background-color) < 50%) {
+  background-color: lighten(@base-background-color, 0%);
+}
+
+.syntax-selection-color() when (lightness(@base-background-color) >= 50%) {
+  background-color: lighten(@base-background-color, 1%);
+}
+
+.syntax-highlight-current() when (lightness(@base-background-color) < 50%) {
+  border: 1px solid lighten(@syntax-result-marker-color-selected, 50%);
+}
+
+.syntax-highlight-current() when (lightness(@base-background-color) >= 50%) {
+  border: 1px solid darken(@syntax-result-marker-color-selected, 50%);
+}
+
+.syntax-color(@color) when (lightness(@base-background-color) >= 50%){
+  color: lighten(@color, 15%);
+}
+
+.syntax-color(@color) when (lightness(@base-background-color) < 50%){
+  color: lighten(@color, 0%);
+}

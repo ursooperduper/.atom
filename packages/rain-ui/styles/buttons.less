@@ -1,0 +1,59 @@
+// ========== Buttons ========== //
+
+// Buttons
+.btn {
+  .button-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+  height: @tab-height;
+  transition: all 100ms ease;
+}
+
+.btn.btn-xs {
+  font-size: .8rem;
+  padding: .4rem;
+}
+
+.btn.btn-sm {
+  font-size: .9rem;
+  padding: .6rem;
+}
+
+.btn.btn-lg {
+  font-size: 1.2rem;
+  padding: .8rem;
+}
+
+.btn.btn-primary {
+  .button(@base-accent-color);
+}
+
+.btn.btn-info {
+  .button(@background-color-info);
+}
+
+.btn.btn-success {
+  .button(@background-color-success);
+}
+
+.btn.btn-warning {
+  .button(@background-color-warning);
+}
+
+.btn.btn-error {
+  .button(@background-color-error);
+}
+
+// Button Groups
+.btn-group > .btn {
+  z-index: 0;
+  &:hover {
+    z-index: 0;
+  }
+  &.btn:focus {
+    z-index: 1;
+  }
+  &.selected,
+  &.selected:first-child,
+  &.selected:last-child {
+    color: @button-text-color-selected;
+  }
+}

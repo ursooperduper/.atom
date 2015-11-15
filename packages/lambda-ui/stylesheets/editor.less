@@ -1,0 +1,41 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+atom-text-editor[mini] {
+  background-color: @input-background-color;
+  border: 1px solid @input-border-color;
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, .075);
+  border-radius: @component-border-radius;
+  padding-left: @component-padding/2;
+
+  .cursor { border-color: #fff; }
+  .selection .region { background-color: lighten(@input-background-color, 10%); }
+}
+
+atom-text-editor[mini].is-focused {
+  background-color: lighten(@input-background-color, 5%);
+  .selection .region { background-color: desaturate(@background-color-info, 50%); }
+}
+
+
+atom-text-editor::shadow {
+  @keyframes highlight {
+    from { background-color: rgba(100, 255, 100, 0.7); }
+    to { background-color: lighten(@input-background-color, 10%); }
+  }
+}
+
+atom-text-editor::shadow .selection .region {
+  animation-name: highlight;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  background-color: lighten(@input-background-color, 10%);
+}
+
+atom-text-editor {
+  font-family: 'Source Code Pro';
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  border: 6px red;
+}

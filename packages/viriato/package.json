@@ -1,0 +1,35 @@
+{
+  "name": "viriato",
+  "theme": "syntax",
+  "version": "0.11.1",
+  "private": false,
+  "description": "Vivid syntax theme - supports light and dark themes.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asantos3/viriato.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Viriato Syntax Theme\n\nA vivid syntax theme for Atom that works with light and dark themes.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/asantos3/viriato/issues"
+  },
+  "homepage": "https://github.com/asantos3/viriato#readme",
+  "_id": "viriato@0.11.1",
+  "_shasum": "a044c3e037c92dcb4952ef006fc06ff572cbf7e7",
+  "_resolved": "file:../d-115810-37386-1myyy6y/package.tgz",
+  "_from": "../d-115810-37386-1myyy6y/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

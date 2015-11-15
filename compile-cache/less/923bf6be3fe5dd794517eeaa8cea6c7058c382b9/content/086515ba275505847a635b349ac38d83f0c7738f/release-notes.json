@@ -1,0 +1,1 @@
+{"digest":"cb2d6173dd1535a0cbe0138d4b9baf433b0fc4a1","css":".release-notes-status {\n  color: #0098ff;\n}\n.update-instructions {\n  display: none;\n}\n","imports":[{"path":"/Users/sarah/.atom/packages/atom-light-ui-slim/stylesheets/ui-variables.less","digest":"c67dbe28a5274d767a13a0e265c0fd1b3ff6c189"}],"version":1}

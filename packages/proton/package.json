@@ -1,0 +1,35 @@
+{
+  "name": "proton",
+  "description": "A flat streamlined theme based on Neutron UI",
+  "version": "4.0.2",
+  "engines": {
+    "atom": ">0.200.0"
+  },
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slang800/proton"
+  },
+  "theme": "ui",
+  "readme": "# Proton UI Theme for Atom\n\nAn almost flat theme in shades of gunmetal and medium-contrast colors. **Pair it with the [Proton Kai Syntax Theme](http://atom.io/packages/proton-kai)**.\n\nForked from the [Neutron theme](https://github.com/brentd/neutron-ui) by [@brentd](https://github.com/brentd/).\n\n![screenshot](http://cl.ly/image/323M2z0Y1b3f/Image%202014-05-29%20at%208.41.23%20AM.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/slang800/proton/issues"
+  },
+  "homepage": "https://github.com/slang800/proton",
+  "_id": "proton@4.0.2",
+  "_shasum": "ae60af283718362050dec4b557bb598d83185d8c",
+  "_resolved": "file:../d-115529-96633-4tdnsp/package.tgz",
+  "_from": "../d-115529-96633-4tdnsp/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

@@ -1,0 +1,42 @@
+@import 'ui-variables';
+
+.overlay {
+  color: @text-color;
+  background-color: @overlay-background-color;
+  padding: @component-padding;
+  border-radius: @component-border-radius;
+
+  .editor.mini {
+    background-color: @syntax-background-color;
+    margin-bottom: @component-padding;
+  }
+
+  .select-list ol.list-group,
+  &.select-list ol.list-group {
+
+    background-color: @overlay-background-color;
+
+    li {
+      padding: @component-padding;
+      &:hover {
+        color: @text-color-highlight;
+        background-color: @background-color-highlight;
+      }
+      &.two-lines { padding: @component-padding/2 @component-padding; }
+
+      .status.icon {
+        float: right;
+        margin-left: @component-icon-padding;
+        &:before {
+          margin-right: 0;
+        }
+      }
+
+      &.selected {
+        .status.icon {
+          color: @text-color-selected;
+        }
+      }
+    }
+  }
+}

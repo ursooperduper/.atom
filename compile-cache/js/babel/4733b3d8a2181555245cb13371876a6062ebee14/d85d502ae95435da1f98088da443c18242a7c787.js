@@ -1,0 +1,86 @@
+Object.defineProperty(exports, '__esModule', {
+	value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/** @babel */
+
+var _postcss = require('postcss');
+
+var _postcss2 = _interopRequireDefault(_postcss);
+
+var _autoprefixer = require('autoprefixer');
+
+var _autoprefixer2 = _interopRequireDefault(_autoprefixer);
+
+var _postcssSafeParser = require('postcss-safe-parser');
+
+var _postcssSafeParser2 = _interopRequireDefault(_postcssSafeParser);
+
+function init() {
+	var editor = atom.workspace.getActiveTextEditor();
+
+	if (!editor) {
+		return;
+	}
+
+	var selectedText = editor.getSelectedText();
+	var text = selectedText || editor.getText();
+
+	(0, _postcss2['default'])((0, _autoprefixer2['default'])(atom.config.get('autoprefixer'))).process(text, {
+		parser: _postcssSafeParser2['default']
+	}).then(function (result) {
+		result.warnings().forEach(function (x) {
+			console.warn(x.toString());
+			atom.notifications.addWarning('Autoprefixer', { detail: x.toString() });
+		});
+
+		var cursorPosition = editor.getCursorBufferPosition();
+
+		if (selectedText) {
+			editor.setTextInBufferRange(editor.getSelectedBufferRange(), result.css);
+		} else {
+			editor.setText(result.css);
+		}
+
+		editor.setCursorBufferPosition(cursorPosition);
+	})['catch'](function (err) {
+		if (err.name === 'CssSyntaxError') {
+			err.message += err.showSourceCode();
+		}
+
+		console.error(err);
+		atom.notifications.addError('Autoprefixer', { detail: err.message });
+	});
+}
+
+var config = {
+	browsers: {
+		title: 'Supported browsers',
+		description: 'Using the [following syntax](https://github.com/ai/browserslist#queries).',
+		type: 'array',
+		'default': _autoprefixer2['default'].defaults,
+		items: {
+			type: 'string'
+		}
+	},
+	cascade: {
+		title: 'Cascade prefixes',
+		type: 'boolean',
+		'default': true
+	},
+	remove: {
+		title: 'Remove unneeded prefixes',
+		type: 'boolean',
+		'default': true
+	}
+};
+
+exports.config = config;
+var activate = function activate() {
+	atom.commands.add('atom-workspace', 'autoprefixer', init);
+};
+exports.activate = activate;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9zYXJhaC8uYXRvbS9wYWNrYWdlcy9hdXRvcHJlZml4ZXIvaW5kZXguanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7dUJBQ29CLFNBQVM7Ozs7NEJBQ0osY0FBYzs7OztpQ0FDVCxxQkFBcUI7Ozs7QUFFbkQsU0FBUyxJQUFJLEdBQUc7QUFDZixLQUFNLE1BQU0sR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLG1CQUFtQixFQUFFLENBQUM7O0FBRXBELEtBQUksQ0FBQyxNQUFNLEVBQUU7QUFDWixTQUFPO0VBQ1A7O0FBRUQsS0FBTSxZQUFZLEdBQUcsTUFBTSxDQUFDLGVBQWUsRUFBRSxDQUFDO0FBQzlDLEtBQU0sSUFBSSxHQUFHLFlBQVksSUFBSSxNQUFNLENBQUMsT0FBTyxFQUFFLENBQUM7O0FBRTlDLDJCQUFRLCtCQUFhLElBQUksQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLGNBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsSUFBSSxFQUFFO0FBQ3BFLFFBQU0sZ0NBQW1CO0VBQ3pCLENBQUMsQ0FBQyxJQUFJLENBQUMsVUFBQSxNQUFNLEVBQUk7QUFDakIsUUFBTSxDQUFDLFFBQVEsRUFBRSxDQUFDLE9BQU8sQ0FBQyxVQUFBLENBQUMsRUFBSTtBQUM5QixVQUFPLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFDO0FBQzNCLE9BQUksQ0FBQyxhQUFhLENBQUMsVUFBVSxDQUFDLGNBQWMsRUFBRSxFQUFDLE1BQU0sRUFBRSxDQUFDLENBQUMsUUFBUSxFQUFFLEVBQUMsQ0FBQyxDQUFDO0dBQ3RFLENBQUMsQ0FBQzs7QUFFSCxNQUFNLGNBQWMsR0FBRyxNQUFNLENBQUMsdUJBQXVCLEVBQUUsQ0FBQzs7QUFFeEQsTUFBSSxZQUFZLEVBQUU7QUFDakIsU0FBTSxDQUFDLG9CQUFvQixDQUFDLE1BQU0sQ0FBQyxzQkFBc0IsRUFBRSxFQUFFLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQztHQUN6RSxNQUFNO0FBQ04sU0FBTSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUM7R0FDM0I7O0FBRUQsUUFBTSxDQUFDLHVCQUF1QixDQUFDLGNBQWMsQ0FBQyxDQUFDO0VBQy9DLENBQUMsU0FBTSxDQUFDLFVBQUEsR0FBRyxFQUFJO0FBQ2YsTUFBSSxHQUFHLENBQUMsSUFBSSxLQUFLLGdCQUFnQixFQUFFO0FBQ2xDLE1BQUcsQ0FBQyxPQUFPLElBQUksR0FBRyxDQUFDLGNBQWMsRUFBRSxDQUFDO0dBQ3BDOztBQUVELFNBQU8sQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUM7QUFDbkIsTUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLENBQUMsY0FBYyxFQUFFLEVBQUMsTUFBTSxFQUFFLEdBQUcsQ0FBQyxPQUFPLEVBQUMsQ0FBQyxDQUFDO0VBQ25FLENBQUMsQ0FBQztDQUNIOztBQUVNLElBQU0sTUFBTSxHQUFHO0FBQ3JCLFNBQVEsRUFBRTtBQUNULE9BQUssRUFBRSxvQkFBb0I7QUFDM0IsYUFBVyxFQUFFLDJFQUEyRTtBQUN4RixNQUFJLEVBQUUsT0FBTztBQUNiLGFBQVMsMEJBQWEsUUFBUTtBQUM5QixPQUFLLEVBQUU7QUFDTixPQUFJLEVBQUUsUUFBUTtHQUNkO0VBQ0Q7QUFDRCxRQUFPLEVBQUU7QUFDUixPQUFLLEVBQUUsa0JBQWtCO0FBQ3pCLE1BQUksRUFBRSxTQUFTO0FBQ2YsYUFBUyxJQUFJO0VBQ2I7QUFDRCxPQUFNLEVBQUU7QUFDUCxPQUFLLEVBQUUsMEJBQTBCO0FBQ2pDLE1BQUksRUFBRSxTQUFTO0FBQ2YsYUFBUyxJQUFJO0VBQ2I7Q0FDRCxDQUFDOzs7QUFFSyxJQUFNLFFBQVEsR0FBRyxTQUFYLFFBQVEsR0FBUztBQUM3QixLQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsRUFBRSxjQUFjLEVBQUUsSUFBSSxDQUFDLENBQUM7Q0FDMUQsQ0FBQyIsImZpbGUiOiIvVXNlcnMvc2FyYWgvLmF0b20vcGFja2FnZXMvYXV0b3ByZWZpeGVyL2luZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqIEBiYWJlbCAqL1xuaW1wb3J0IHBvc3Rjc3MgZnJvbSAncG9zdGNzcyc7XG5pbXBvcnQgYXV0b3ByZWZpeGVyIGZyb20gJ2F1dG9wcmVmaXhlcic7XG5pbXBvcnQgcG9zdGNzc1NhZmVQYXJzZXIgZnJvbSAncG9zdGNzcy1zYWZlLXBhcnNlcic7XG5cbmZ1bmN0aW9uIGluaXQoKSB7XG5cdGNvbnN0IGVkaXRvciA9IGF0b20ud29ya3NwYWNlLmdldEFjdGl2ZVRleHRFZGl0b3IoKTtcblxuXHRpZiAoIWVkaXRvcikge1xuXHRcdHJldHVybjtcblx0fVxuXG5cdGNvbnN0IHNlbGVjdGVkVGV4dCA9IGVkaXRvci5nZXRTZWxlY3RlZFRleHQoKTtcblx0Y29uc3QgdGV4dCA9IHNlbGVjdGVkVGV4dCB8fCBlZGl0b3IuZ2V0VGV4dCgpO1xuXG5cdHBvc3Rjc3MoYXV0b3ByZWZpeGVyKGF0b20uY29uZmlnLmdldCgnYXV0b3ByZWZpeGVyJykpKS5wcm9jZXNzKHRleHQsIHtcblx0XHRwYXJzZXI6IHBvc3Rjc3NTYWZlUGFyc2VyXG5cdH0pLnRoZW4ocmVzdWx0ID0+IHtcblx0XHRyZXN1bHQud2FybmluZ3MoKS5mb3JFYWNoKHggPT4ge1xuXHRcdFx0Y29uc29sZS53YXJuKHgudG9TdHJpbmcoKSk7XG5cdFx0XHRhdG9tLm5vdGlmaWNhdGlvbnMuYWRkV2FybmluZygnQXV0b3ByZWZpeGVyJywge2RldGFpbDogeC50b1N0cmluZygpfSk7XG5cdFx0fSk7XG5cblx0XHRjb25zdCBjdXJzb3JQb3NpdGlvbiA9IGVkaXRvci5nZXRDdXJzb3JCdWZmZXJQb3NpdGlvbigpO1xuXG5cdFx0aWYgKHNlbGVjdGVkVGV4dCkge1xuXHRcdFx0ZWRpdG9yLnNldFRleHRJbkJ1ZmZlclJhbmdlKGVkaXRvci5nZXRTZWxlY3RlZEJ1ZmZlclJhbmdlKCksIHJlc3VsdC5jc3MpO1xuXHRcdH0gZWxzZSB7XG5cdFx0XHRlZGl0b3Iuc2V0VGV4dChyZXN1bHQuY3NzKTtcblx0XHR9XG5cblx0XHRlZGl0b3Iuc2V0Q3Vyc29yQnVmZmVyUG9zaXRpb24oY3Vyc29yUG9zaXRpb24pO1xuXHR9KS5jYXRjaChlcnIgPT4ge1xuXHRcdGlmIChlcnIubmFtZSA9PT0gJ0Nzc1N5bnRheEVycm9yJykge1xuXHRcdFx0ZXJyLm1lc3NhZ2UgKz0gZXJyLnNob3dTb3VyY2VDb2RlKCk7XG5cdFx0fVxuXG5cdFx0Y29uc29sZS5lcnJvcihlcnIpO1xuXHRcdGF0b20ubm90aWZpY2F0aW9ucy5hZGRFcnJvcignQXV0b3ByZWZpeGVyJywge2RldGFpbDogZXJyLm1lc3NhZ2V9KTtcblx0fSk7XG59XG5cbmV4cG9ydCBjb25zdCBjb25maWcgPSB7XG5cdGJyb3dzZXJzOiB7XG5cdFx0dGl0bGU6ICdTdXBwb3J0ZWQgYnJvd3NlcnMnLFxuXHRcdGRlc2NyaXB0aW9uOiAnVXNpbmcgdGhlIFtmb2xsb3dpbmcgc3ludGF4XShodHRwczovL2dpdGh1Yi5jb20vYWkvYnJvd3NlcnNsaXN0I3F1ZXJpZXMpLicsXG5cdFx0dHlwZTogJ2FycmF5Jyxcblx0XHRkZWZhdWx0OiBhdXRvcHJlZml4ZXIuZGVmYXVsdHMsXG5cdFx0aXRlbXM6IHtcblx0XHRcdHR5cGU6ICdzdHJpbmcnXG5cdFx0fVxuXHR9LFxuXHRjYXNjYWRlOiB7XG5cdFx0dGl0bGU6ICdDYXNjYWRlIHByZWZpeGVzJyxcblx0XHR0eXBlOiAnYm9vbGVhbicsXG5cdFx0ZGVmYXVsdDogdHJ1ZVxuXHR9LFxuXHRyZW1vdmU6IHtcblx0XHR0aXRsZTogJ1JlbW92ZSB1bm5lZWRlZCBwcmVmaXhlcycsXG5cdFx0dHlwZTogJ2Jvb2xlYW4nLFxuXHRcdGRlZmF1bHQ6IHRydWVcblx0fVxufTtcblxuZXhwb3J0IGNvbnN0IGFjdGl2YXRlID0gKCkgPT4ge1xuXHRhdG9tLmNvbW1hbmRzLmFkZCgnYXRvbS13b3Jrc3BhY2UnLCAnYXV0b3ByZWZpeGVyJywgaW5pdCk7XG59O1xuIl19
+//# sourceURL=/Users/sarah/.atom/packages/autoprefixer/index.js

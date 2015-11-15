@@ -1,0 +1,37 @@
+{
+  "name": "polychrome-syntax",
+  "theme": "syntax",
+  "version": "0.1.1",
+  "description": "A Monokai based syntax theme for Polychrome UI.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ignism/polychrome-syntax"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {},
+  "readme": "# Polychrome syntax theme\n\nA Monokai based syntax theme for Atom.\n\nPair it with the [Polychrome UI](https://github.com/ignism/polychrome-ui).\n\n![polychrome](http://i.imgur.com/5kmwH9I.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/ignism/polychrome-syntax/issues"
+  },
+  "homepage": "https://github.com/ignism/polychrome-syntax",
+  "_id": "polychrome-syntax@0.1.1",
+  "dist": {
+    "shasum": "f3e930229941ff0cdb0a46f732492b90dc1370b3"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-115021-63290-1nlpqnk/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-115021-63290-1nlpqnk/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

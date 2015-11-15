@@ -1,0 +1,44 @@
+{
+  "name": "rainbow-theme",
+  "theme": "syntax",
+  "version": "1.6.0",
+  "description": "A pleasing, light syntax theme. A standalone conversion of Dayle Rees' Textmate Rainbow theme.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlo/rainbow-theme.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "contributors": [
+    {
+      "name": "Carlo Zottmann",
+      "email": "carlo@zottmann.org"
+    },
+    {
+      "name": "Dayle Rees",
+      "email": "thepunkfan@gmail.com"
+    }
+  ],
+  "readme": "# Rainbow syntax theme\n\nA standalone conversion of [Dayle Rees' Textmate Rainbow theme](https://github.com/daylerees/colour-schemes).\n\nThe theme was created by converting it from the Textmate theme, then _slightly_\nadjusting gutter margin & color as well as the invisibles to my liking.\n\n\n## Screenshot\n\n![Screenshot of theme showing Ruby code](https://raw.githubusercontent.com/carlo/rainbow-theme/master/rainbow-theme.png)\n\n\n## Developers\n\nOriginal work by [Dayle Rees](https://github.com/daylerees/colour-schemes),\nstandalone Atom port (+ minor adjustments) by\n[Carlo Zottmann](https://github.com/carlo).\n\n## License\n\nDayle's original work is MIT licensed, so of course this here version is, too.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/carlo/rainbow-theme/issues"
+  },
+  "homepage": "https://github.com/carlo/rainbow-theme#readme",
+  "_id": "rainbow-theme@1.6.0",
+  "_shasum": "0eaba9142f05a3939c250be9080bde7b54f16afb",
+  "_resolved": "file:../d-115105-74301-1h4h4jd/package.tgz",
+  "_from": "../d-115105-74301-1h4h4jd/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

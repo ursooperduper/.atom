@@ -1,0 +1,1 @@
+{".source.gfm":{"Front Matter":{"prefix":"fm","body":"---\nlayout: ${1:post}\ntitle: ${2:post title}\ndate: ${3:dd-mm-yyyy}\npublished: ${4:false}\ntags:\n- ${5:tag name}\n---$0"}},".source.yaml":{"Cheatsheet Shortcut":{"prefix":"sc","body":"- shortcut: $1\ndesc: $2\n$0"}}}

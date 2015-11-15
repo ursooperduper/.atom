@@ -1,0 +1,27 @@
+{
+  "name": "proton-light",
+  "theme": "ui",
+  "version": "0.2.0",
+  "private": false,
+  "description": "A light, airy version of Proton UI.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdsimcoe/proton-light"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.39.0"
+  },
+  "readme": "# Proton Light UI\n\nA light, airy version of Proton UI. **Pair it with the [Proton Framer syntax](http://atom.io/packages/proton-framer)**.\n\n![screenshot](http://cl.ly/image/1U422w3P3W3u/Screen%20Shot%202014-10-10%20at%209.47.38%20AM.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jdsimcoe/proton-light/issues"
+  },
+  "homepage": "https://github.com/jdsimcoe/proton-light",
+  "_id": "proton-light@0.2.0",
+  "dist": {
+    "shasum": "d53a75bb83e7fc597d537d54c81acbc879102e19"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7813-10waky0/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-7813-10waky0/package.tgz"
+}

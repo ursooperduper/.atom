@@ -1,0 +1,26 @@
+{
+  "name": "atom-space-race",
+  "theme": "ui",
+  "version": "0.2.1",
+  "description": "In the distant future language is blocks, this theme is square.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonrohan/atom-space-race"
+  },
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Atom Space Race\n\nIn the distant future language is blocks, this theme is square.\n\n![atom-space-race](https://f.cloud.github.com/assets/54012/2300739/c1f5c5a8-a103-11e3-991a-657c05b1dd41.gif)\n\nTo get the full look you must also install [Atom Space Race Syntax](https://github.com/jonrohan/atom-space-race-syntax/) and the [Redacted font](https://github.com/christiannaths/Redacted-Font) by @christiannaths.\n\n```sh\napm install atom-space-race\n```\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jonrohan/atom-space-race/issues"
+  },
+  "homepage": "https://github.com/jonrohan/atom-space-race",
+  "_id": "atom-space-race@0.2.1",
+  "dist": {
+    "shasum": "cd26a776a2336c20e28742b2a65d22eb69fd3336"
+  },
+  "_resolved": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-6541-1bpdhjk/package.tgz",
+  "_from": "/private/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114917-6541-1bpdhjk/package.tgz"
+}

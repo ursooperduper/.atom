@@ -1,0 +1,66 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+.btn-background (@bg, @bg-hover, @bg-selected, @text) {
+  color: @cool-dark-gray;
+  background-color: @bg;
+  transition: color 0.2s;
+  border: 1px solid @button-border-color !important;
+
+  &:hover{
+    color: @text-color-highlight;
+    background-color: @bg-hover;
+  }
+  &:focus {
+    background-color: @bg-hover;
+  }
+  &.selected,
+  &.selected:hover {
+    color: @text-color-selected;
+    background-color: @bg-selected;
+  }
+}
+
+.btn-variant (@color) {
+  border: 1px solid @very-dark-gray !important;
+  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+  &:hover, &:focus {
+    border: 1px solid @color !important;
+  }
+  &.selected {
+      color: @text-color-highlight;
+      border: 1px solid @color !important;
+    &:hover {
+      border: 1px solid @gray !important;
+    }
+  }
+}
+
+.btn {
+  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+  border: 1px solid @button-border-color !important;
+  border-radius: @component-border-radius;
+  &:active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+  &:hover {
+    border: 1px solid @very-light-gray !important;
+  }
+}
+
+.btn.btn-primary {
+  .btn-variant(@background-color-primary);
+}
+.btn.btn-info {
+  .btn-variant(@background-color-info);
+}
+.btn.btn-success {
+  .btn-variant(@background-color-success);
+}
+.btn.btn-warning {
+  .btn-variant(@background-color-warning);
+}
+.btn.btn-error {
+  .btn-variant(@background-color-error);
+}

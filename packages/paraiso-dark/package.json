@@ -1,0 +1,52 @@
+{
+  "name": "paraiso-dark",
+  "theme": "syntax",
+  "version": "1.2.8",
+  "description": "A color scheme inspired by the colorful illustrations by Brazilian artist Rubens LP",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idleberg/atom-paraiso-dark.git"
+  },
+  "license": "CC-BY-SA 4.0",
+  "author": {
+    "name": "Jan T. Sott",
+    "url": "http://github.com/idleberg"
+  },
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-coffeelint": "^0.5.0",
+    "gulp-debug": "^2.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-jsonlint": "^1.1.1",
+    "gulp-recess": "^1.1.2"
+  },
+  "scripts": {
+    "test": "gulp lint"
+  },
+  "readme": "# Paraíso (dark) for Atom\n\n[![apm](https://img.shields.io/apm/l/paraiso-dark.svg?style=flat-square)](https://atom.io/packages/paraiso-dark)\n[![apm](https://img.shields.io/apm/v/paraiso-dark.svg?style=flat-square)](https://atom.io/themes/paraiso-dark)\n[![apm](https://img.shields.io/apm/dm/paraiso-dark.svg?style=flat-square)](https://atom.io/packages/paraiso-dark)\n[![Travis branch](https://img.shields.io/travis/idleberg/atom-paraiso-dark/master.svg?style=flat-square)](https://travis-ci.org/idleberg/atom-paraiso-dark)\n\nA color scheme inspired by the colorful illustrations by Brazilian artist [Rubens LP](http://www.rubenslp.com.br/).\n\n![Screenshot](https://raw.githubusercontent.com/idleberg/atom-paraiso-dark/master/screenshot.png)\n\nAlso [available](https://github.com/search?q=%40idleberg+paraiso) for these apps:\n\n* BBEdit\n* CodeMirror\n* Color Palettes\n* Eclipse\n* Geany\n* Gedit\n* Google Code Prettify\n* highlight.js\n* IDEA\n* iTerm2\n* Mou\n* Notepad++\n* Prism\n* Pygments\n* Rainbow\n* [Sublime Text](https://github.com/idleberg/Paraiso.tmTheme)\n* Terminal\n* TextMate\n* Windows Command Prompt\n* Xcode\n\n## Installation\n\n### apm\n\n* Install theme `apm install paraiso-dark` (or use the GUI)\n\n### GitHub\n\n1. Change directory `cd ~/.atom/packages/`\n2. Clone repository `git clone https://github.com/idleberg/atom-paraiso-dark paraiso-dark`\n3. Enable theme from the *Atom/Preferences* menu\n\nSee the official [documentation](https://atom.io/docs/latest/converting-a-text-mate-theme) for details\n\n## License\n\nThis work by Jan T. Sott is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Unported License](http://creativecommons.org/licenses/by-sa/4.0/deed.en_US).\n\n## Donate\n\nYou are welcome support this project using [Flattr](https://flattr.com/submit/auto?user_id=idleberg&url=https://github.com/idleberg/atom-paraiso-dark) or Bitcoin `17CXJuPsmhuTzFV2k4RKYwpEHVjskJktRd`",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/idleberg/atom-paraiso-dark/issues"
+  },
+  "homepage": "https://github.com/idleberg/atom-paraiso-dark#readme",
+  "_id": "paraiso-dark@1.2.8",
+  "_shasum": "529707f9443578d02af67b517a7028935f3c8be8",
+  "_resolved": "file:../d-11599-37463-j8o4sp/package.tgz",
+  "_from": "../d-11599-37463-j8o4sp/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "gulpfile.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

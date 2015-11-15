@@ -1,0 +1,200 @@
+@import 'syntax-variables';
+
+.editor-colors {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+}
+
+.editor {
+  font-weight: normal;
+
+  &.react .gutter .line-number .icon-right {
+    padding-left: 4px;
+    padding-right: 2px;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .cursor-line {
+      background-color: @syntax-gutter-background-color-selected;
+      color: @syntax-gutter-text-color-selected;
+    }
+  }
+
+  .line-number.cursor-line-no-selection {
+    background-color: @syntax-gutter-background-color-selected;
+  }
+
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    border-color: @syntax-cursor-color;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+  .search-results .marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+  }
+
+  .search-results .marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+  }
+
+  .comment {
+    color: @warm-light-gray;
+  }
+
+  .string {
+    color: @yellow;
+  }
+
+  .constant.numeric {
+    color: @purple;
+  }
+
+  .constant.language {
+    color: @purple;
+  }
+
+  .constant.character,
+  .constant.other {
+    color: @purple;
+  }
+
+  .keyword {
+    color: @pink;
+  }
+
+  .storage {
+    color: @pink;
+  }
+
+  .storage.type {
+    font-style: italic;
+    color: @cyan;
+  }
+
+  .entity.name.class {
+    text-decoration: underline;
+    color: @green;
+  }
+
+  .entity.other.inherited-class {
+    font-style: italic;
+    text-decoration: underline;
+    color: @green;
+  }
+
+  .entity.name.function {
+    color: @green;
+  }
+
+  .entity.name.instance {
+    color: @cyan;
+  }
+
+  .variable.other {
+    color: @orange;
+  }
+  .variable.parameter {
+    font-style: italic;
+    color: @orange;
+  }
+
+  .entity.name.tag {
+    color: @pink;
+  }
+
+  .entity.other.attribute-name {
+    color: @green;
+  }
+
+  .support.function {
+    color: @cyan;
+  }
+
+  .support.constant {
+    color: @cyan;
+  }
+
+  .support.type,
+  .support.class {
+    font-style: italic;
+    color: @cyan;
+  }
+
+  .invalid {
+    color: @cool-very-light-gray;
+    background-color: @pink;
+  }
+
+  .invalid.deprecated {
+    color: @cool-very-light-gray;
+    background-color: @purple;
+  }
+
+  // Jade syntax
+  .class.jade {
+    color: @purple;
+  }
+
+  .gfm {
+    .markup {
+      &.heading {
+        color: @green;
+        font-weight: bold;
+      }
+
+      &.underline {
+        color: @yellow;
+        text-decoration: underline;
+      }
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .raw {
+      color: @cyan;
+    }
+
+    .variable.list {
+      color: @pink;
+      font-weight: bold;
+    }
+
+    .link {
+      color: @cool-light-gray;
+
+      .entity {
+        color: @purple;
+      }
+    }
+  }
+}

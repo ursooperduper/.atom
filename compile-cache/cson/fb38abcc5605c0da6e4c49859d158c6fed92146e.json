@@ -1,0 +1,1 @@
+{"context-menu":{"atom-text-editor":[{"label":"Run sketch","command":"processing:run"}]},"menu":[{"label":"Packages","submenu":[{"label":"Processing","submenu":[{"label":"Run sketch","command":"processing:run"}]}]}]}

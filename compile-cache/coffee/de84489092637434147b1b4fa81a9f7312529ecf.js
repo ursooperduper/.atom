@@ -1,0 +1,100 @@
+(function() {
+  var EditLine;
+
+  EditLine = require("../../lib/commands/edit-line");
+
+  describe("EditLine", function() {
+    var editLine, editor, _ref;
+    _ref = [], editor = _ref[0], editLine = _ref[1];
+    beforeEach(function() {
+      waitsForPromise(function() {
+        return atom.workspace.open("empty.markdown");
+      });
+      return runs(function() {
+        return editor = atom.workspace.getActiveTextEditor();
+      });
+    });
+    describe("insertNewLine", function() {
+      beforeEach(function() {
+        return editLine = new EditLine("insert-new-line");
+      });
+      it("does not affect normal new line", function() {
+        editor.setText("this is normal line");
+        editor.setCursorBufferPosition([0, 4]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("this\n is normal line");
+      });
+      it("continue if config inlineNewLineContinuation enabled", function() {
+        atom.config.set("markdown-writer.inlineNewLineContinuation", true);
+        editor.setText("- inline line");
+        editor.setCursorBufferPosition([0, 8]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("- inline\n-  line");
+      });
+      it("continue after unordered list line", function() {
+        editor.setText("- line");
+        editor.setCursorBufferPosition([0, 6]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("- line\n- ");
+      });
+      it("continue after ordered task list line", function() {
+        editor.setText("1. [ ] Epic Tasks\n  1. [X] Sub-task A");
+        editor.setCursorBufferPosition([1, 19]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("1. [ ] Epic Tasks\n  1. [X] Sub-task A\n  2. [ ] ");
+      });
+      it("continue after blockquote line", function() {
+        editor.setText("> Your time is limited, so don’t waste it living someone else’s life.");
+        editor.setCursorBufferPosition([0, 69]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("> Your time is limited, so don’t waste it living someone else’s life.\n> ");
+      });
+      it("not continue after empty unordered task list line", function() {
+        editor.setText("- [ ]");
+        editor.setCursorBufferPosition([0, 5]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("\n");
+      });
+      it("not continue after empty ordered list line", function() {
+        editor.setText("1. [ ] parent\n  - child\n  - ");
+        editor.setCursorBufferPosition([2, 4]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("1. [ ] parent\n  - child\n2. [ ] ");
+      });
+      return it("not continue after empty ordered paragraph", function() {
+        editor.setText("1. parent\n  - child has a paragraph\n\n    paragraph one\n\n    paragraph two\n\n  - ");
+        editor.setCursorBufferPosition([7, 4]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("1. parent\n  - child has a paragraph\n\n    paragraph one\n\n    paragraph two\n\n2. ");
+      });
+    });
+    return describe("indentListLine", function() {
+      beforeEach(function() {
+        return editLine = new EditLine("indent-list-line");
+      });
+      it("indent line if it is at head of line", function() {
+        editor.setText("  normal line");
+        editor.setCursorBufferPosition([0, 1]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("    normal line");
+      });
+      it("indent line if it is a list", function() {
+        editor.setText("- list");
+        editor.setCursorBufferPosition([0, 5]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("  - list");
+      });
+      return it("insert space if it is text", function() {
+        editor.setText("texttext");
+        editor.setCursorBufferPosition([0, 4]);
+        editLine.trigger();
+        return expect(editor.getText()).toBe("text text");
+      });
+    });
+  });
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL1VzZXJzL3NhcmFoLy5hdG9tL3BhY2thZ2VzL21hcmtkb3duLXdyaXRlci9zcGVjL2NvbW1hbmRzL2VkaXQtbGluZS1zcGVjLmNvZmZlZSIKICBdLAogICJuYW1lcyI6IFtdLAogICJtYXBwaW5ncyI6ICJBQUVBO0FBQUEsTUFBQSxRQUFBOztBQUFBLEVBQUEsUUFBQSxHQUFXLE9BQUEsQ0FBUSw4QkFBUixDQUFYLENBQUE7O0FBQUEsRUFFQSxRQUFBLENBQVMsVUFBVCxFQUFxQixTQUFBLEdBQUE7QUFDbkIsUUFBQSxzQkFBQTtBQUFBLElBQUEsT0FBcUIsRUFBckIsRUFBQyxnQkFBRCxFQUFTLGtCQUFULENBQUE7QUFBQSxJQUVBLFVBQUEsQ0FBVyxTQUFBLEdBQUE7QUFDVCxNQUFBLGVBQUEsQ0FBZ0IsU0FBQSxHQUFBO2VBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFmLENBQW9CLGdCQUFwQixFQUFIO01BQUEsQ0FBaEIsQ0FBQSxDQUFBO2FBQ0EsSUFBQSxDQUFLLFNBQUEsR0FBQTtlQUFHLE1BQUEsR0FBUyxJQUFJLENBQUMsU0FBUyxDQUFDLG1CQUFmLENBQUEsRUFBWjtNQUFBLENBQUwsRUFGUztJQUFBLENBQVgsQ0FGQSxDQUFBO0FBQUEsSUFNQSxRQUFBLENBQVMsZUFBVCxFQUEwQixTQUFBLEdBQUE7QUFDeEIsTUFBQSxVQUFBLENBQVcsU0FBQSxHQUFBO2VBQUcsUUFBQSxHQUFlLElBQUEsUUFBQSxDQUFTLGlCQUFULEVBQWxCO01BQUEsQ0FBWCxDQUFBLENBQUE7QUFBQSxNQUVBLEVBQUEsQ0FBRyxpQ0FBSCxFQUFzQyxTQUFBLEdBQUE7QUFDcEMsUUFBQSxNQUFNLENBQUMsT0FBUCxDQUFlLHFCQUFmLENBQUEsQ0FBQTtBQUFBLFFBQ0EsTUFBTSxDQUFDLHVCQUFQLENBQStCLENBQUMsQ0FBRCxFQUFJLENBQUosQ0FBL0IsQ0FEQSxDQUFBO0FBQUEs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
+
+//# sourceURL=/Users/sarah/.atom/packages/markdown-writer/spec/commands/edit-line-spec.coffee

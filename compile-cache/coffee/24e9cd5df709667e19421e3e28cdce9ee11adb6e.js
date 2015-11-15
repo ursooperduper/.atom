@@ -1,0 +1,84 @@
+(function() {
+  var insertAfterCurrentParagraph, insertAtEndOfArticle, removeDefinitionRange, utils, _findFirstEmptyRow, _findFirstNonEmptyRowBackwards, _isReferenceDefinition;
+
+  utils = require("../utils");
+
+  insertAtEndOfArticle = function(editor, text) {
+    var point, position, row;
+    position = editor.getCursorBufferPosition();
+    row = _findFirstNonEmptyRowBackwards(editor, editor.getLastBufferRow());
+    point = [row, editor.lineTextForBufferRow(row).length];
+    if (_isReferenceDefinition(editor, row)) {
+      editor.setTextInBufferRange([point, point], "\n" + text);
+    } else {
+      editor.setTextInBufferRange([point, point], "\n\n" + text);
+    }
+    return editor.setCursorBufferPosition(position);
+  };
+
+  _findFirstNonEmptyRowBackwards = function(editor, row) {
+    while (row >= 0 && editor.lineTextForBufferRow(row).length === 0) {
+      row--;
+    }
+    return row;
+  };
+
+  insertAfterCurrentParagraph = function(editor, text) {
+    var point, position, row;
+    position = editor.getCursorBufferPosition();
+    row = _findFirstEmptyRow(editor, position.row + 1);
+    point = [row, editor.lineTextForBufferRow(row).length];
+    if (_isReferenceDefinition(editor, row)) {
+      editor.setTextInBufferRange([point, point], "\n" + text);
+    } else if (point[1] > 0) {
+      editor.setTextInBufferRange([point, point], "\n\n" + text);
+    } else {
+      editor.setTextInBufferRange([point, point], "\n" + text + "\n");
+    }
+    return editor.setCursorBufferPosition(position);
+  };
+
+  _findFirstEmptyRow = function(editor, row) {
+    var lastRow;
+    lastRow = editor.getLastBufferRow();
+    while (row <= lastRow && editor.lineTextForBufferRow(row).length !== 0) {
+      row++;
+    }
+    if (row > lastRow) {
+      return lastRow;
+    }
+    while (row < lastRow && _isReferenceDefinition(editor, row + 1)) {
+      row++;
+    }
+    return row;
+  };
+
+  _isReferenceDefinition = function(editor, row) {
+    var line;
+    line = editor.lineTextForBufferRow(row);
+    return utils.isReferenceDefinition(line);
+  };
+
+  removeDefinitionRange = function(editor, range) {
+    var emptyLineAbove, emptyLineBelow, lineNum, _ref, _ref1;
+    lineNum = range.start.row;
+    emptyLineAbove = !!((_ref = editor.lineTextForBufferRow(lineNum - 1)) != null ? _ref.trim() : void 0);
+    emptyLineBelow = !!((_ref1 = editor.lineTextForBufferRow(lineNum + 1)) != null ? _ref1.trim() : void 0);
+    editor.setSelectedBufferRange(range);
+    editor.deleteLine();
+    if (emptyLineAbove && emptyLineBelow) {
+      return editor.deleteLine();
+    }
+  };
+
+  module.exports = {
+    insertAtEndOfArticle: insertAtEndOfArticle,
+    insertAfterCurrentParagraph: insertAfterCurrentParagraph,
+    removeDefinitionRange: removeDefinitionRange
+  };
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL1VzZXJzL3NhcmFoLy5hdG9tL3BhY2thZ2VzL21hcmtkb3duLXdyaXRlci9saWIvaGVscGVycy9pbnNlcnQtbGluay1oZWxwZXIuY29mZmVlIgogIF0sCiAgIm5hbWVzIjogW10sCiAgIm1hcHBpbmdzIjogIkFBQUE7QUFBQSxNQUFBLDJKQUFBOztBQUFBLEVBQUEsS0FBQSxHQUFRLE9BQUEsQ0FBUSxVQUFSLENBQVIsQ0FBQTs7QUFBQSxFQU9BLG9CQUFBLEdBQXVCLFNBQUMsTUFBRCxFQUFTLElBQVQsR0FBQTtBQUNyQixRQUFBLG9CQUFBO0FBQUEsSUFBQSxRQUFBLEdBQVcsTUFBTSxDQUFDLHVCQUFQLENBQUEsQ0FBWCxDQUFBO0FBQUEsSUFFQSxHQUFBLEdBQU0sOEJBQUEsQ0FBK0IsTUFBL0IsRUFBdUMsTUFBTSxDQUFDLGdCQUFQLENBQUEsQ0FBdkMsQ0FGTixDQUFBO0FBQUEsSUFHQSxLQUFBLEdBQVEsQ0FBQyxHQUFELEVBQU0sTUFBTSxDQUFDLG9CQUFQLENBQTRCLEdBQTVCLENBQWdDLENBQUMsTUFBdkMsQ0FIUixDQUFBO0FBSUEsSUFBQSxJQUFHLHNCQUFBLENBQXVCLE1BQXZCLEVBQStCLEdBQS9CLENBQUg7QUFDRSxNQUFBLE1BQU0sQ0FBQyxvQkFBUCxDQUE0QixDQUFDLEtBQUQsRUFBUSxLQUFSLENBQTVCLEVBQTZDLElBQUEsR0FBSSxJQUFqRCxDQUFBLENBREY7S0FBQSxNQUFBO0FBR0UsTUFBQSxNQUFNLENBQUMsb0JBQVAsQ0FBNEIsQ0FBQyxLQUFELEVBQVEsS0FBUixDQUE1QixFQUE2QyxNQUFBLEdBQU0sSUFBbkQsQ0FBQSxDQUhGO0tBSkE7V0FTQSxNQUFNLENBQUMsdUJBQVAsQ0FBK0IsUUFBL0IsRUFWcUI7RUFBQSxDQVB2QixDQUFBOztBQUFBLEVBbUJBLDhCQUFBLEdBQWlDLFNBQUMsTUFBRCxFQUFTLEdBQVQsR0FBQTtBQUN6QixX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
+
+//# sourceURL=/Users/sarah/.atom/packages/markdown-writer/lib/helpers/insert-link-helper.coffee

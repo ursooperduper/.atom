@@ -1,0 +1,108 @@
+@import "ui-variables";
+
+.tab-bar {
+    height: @tab-height;
+    background: @tab-bar-background-color;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1002;
+
+    .tab {
+        position: relative;
+        height: @tab-height;;
+        line-height: @tab-height;
+        .text(normal);
+        border-radius: 0;
+        text-align:center;
+        transition: color 0.2s;
+        transition: background-color 0.2s;
+
+        .title {
+          margin-left: 12px;
+          height: @tab-height;
+        }
+        .close-icon {
+            top:8px;
+            left:8px;
+            height:16px;
+            width:16px;
+            right:auto;
+            border-radius: @component-border-radius;
+            position:absolute;
+            display: none;
+
+            &:before {
+                content:'✕';
+                position:absolute;
+                top: 2px;
+                left: 2px;
+                width:12px;
+                height:12px;
+            }
+
+            &:hover {
+                background-color: @dark-gray;
+            }
+        }
+
+        &.modified:not(:hover) .close-icon {
+            display: block;
+            left: 12px;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            border-width: 1px;
+        }
+
+        &:first-child {
+            margin-left: 0px;
+        }
+
+        &:hover {
+            .close-icon {
+                display: block;
+                &:hover {
+                    background-color: @background-color-selected;
+                }
+            }
+        }
+    }
+
+    .tab.active {
+        .text(highlight);
+        z-index: 10;
+        font-weight: 400;
+        line-height: @tab-height;
+        .close-icon:hover {
+            background-color: @background-color-selected;
+        }
+
+        &:hover {
+          background-color: @tab-background-color-active;
+        }
+        &, &:before {
+            background-color: @tab-background-color-active;
+            height: @tab-height;
+        }
+    }
+
+    .tab:hover {
+        background-color: @background-color-highlight;
+        color: @text-color-highlight;
+    }
+
+    .tab.active:hover .close-icon {
+        color: @text-color-highlight;
+    }
+
+    .placeholder {
+        height: @tab-height;
+        background: linear-gradient(@text-color-info + 50%, @text-color-info);
+        &:after {
+            top: @tab-height;
+            background: @text-color-info;
+        }
+    }
+}

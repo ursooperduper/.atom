@@ -1,0 +1,26 @@
+{
+  "name": "atom-light-ui-slim",
+  "theme": "ui",
+  "version": "0.25.1",
+  "description": "An slim version of atom-light-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apuertolas/atom-light-ui-slim.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Atom Light UI Slim theme\n\nThis is a port of [moonssong's atom-dark-ui-slim theme](https://github.com/moonsspoon/atom-dark-ui-slim) to the light version.\n\n## Slim Theme\n![Preview Image](https://raw.github.com/apuertolas/atom-light-ui-slim/screenshots/after.png)\n\n## Original Theme\n![Original Theme](https://raw.github.com/apuertolas/atom-light-ui-slim/screenshots/before.png)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/apuertolas/atom-light-ui-slim/issues"
+  },
+  "homepage": "https://github.com/apuertolas/atom-light-ui-slim",
+  "_id": "atom-light-ui-slim@0.25.1",
+  "dist": {
+    "shasum": "4591b96d0478b8c52bfd3413998f38dc224f39a2"
+  },
+  "_resolved": "/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114514-34027-j2t9n/package.tgz",
+  "_from": "/var/folders/99/pkqw_b197595jc9_97xmr54r0000gn/T/d-114514-34027-j2t9n/package.tgz"
+}
